@@ -1,0 +1,195 @@
+div#chat_div {
+    position: relative;
+    width: 100vw;
+    height: 75vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    background: #ff8;
+}
+
+div#chat_div>div>h2 {
+    text-align: center;
+}
+
+p#sr_p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+input#_search_ {
+    width: 60%;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px;
+    color: #303030;
+}
+
+button#_b_search {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px;
+    color: #303030;
+    cursor: pointer;
+}
+
+div#recent_chat_friends {
+    position: relative;
+    width: 30%;
+    height: 75vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+div#find_friends>p {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+section#active_find {
+    position: relative;
+    background-color: #8ff;
+    padding: 5px 0;
+    width: 200%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    transition: all 250ms ease-in-out;
+}
+
+section#active_find_sec_1 {
+    position: relative;
+    background-color: #f8f;
+    overflow-x: hidden;
+    padding: 5px 0;
+    width: 100%;
+    height: 95%;
+}
+
+section#active_find_sec_2 {
+    position: relative;
+    background-color: #8f8;
+    overflow-x: hidden;
+    padding: 5px 0;
+    width: 100%;
+    height: 95%;
+}
+
+button#active,
+button#find_friends_b {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+    color: #303030;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+span#spn_bt {
+    position: relative;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+p#c_pb {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+span#el_1 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: #303030;
+    background: #ff0;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 2px 2px 2px 10px;
+}
+
+span#el_2 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: #303030;
+    background: rgb(255, 0, 234);
+    padding: 5px 0;
+}
+
+span#el_2>button {
+    margin-right: 10px;
+    font-size: 16px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+div#message {
+    position: relative;
+    width: 30%;
+    height: 75vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+div#find_friends {
+    position: relative;
+    width: 30%;
+    height: 75vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+div#message>p {
+    align-self: flex-end;
+    color: #505050;
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: 500;
+    width: 50%;
+    text-align: right;
+}
+
+div#message_send {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div#message_send>input[name="s_ms"] {
+    width: 25%;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #303030;
+}
+
+div#message_send>button#_sd {
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #303030;
+}

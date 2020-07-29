@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 section.sec_1,
 section.sec_1>div {
   position: relative;

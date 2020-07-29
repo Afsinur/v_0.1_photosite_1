@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  //console.log(0);
   var x = $("section.sec_2>section>div+div button#lg_btn");
   var y = $("section.sec_2>section+section>div>button#_back");
   var f = $("section.sec_2>section>div>div+div>form#reg");
@@ -67,6 +68,10 @@ $(document).ready(() => {
               f.find("p#_empty").html(
                 "First and last name can not be more than 10 characters!"
               );
+            } else if (data == 2) {
+              f.find("p#_empty").html("You can not use this email!");
+            } else if (data == 4) {
+              f.find("p#_empty").html("You can not use this first name!");
             }
           },
         });
