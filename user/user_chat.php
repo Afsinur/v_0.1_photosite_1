@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/user_chat_1.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../js/user_chat.js"></script>
-    <script type="text/javascript" src="../js/find_friends_1.js"></script>
+    <script type="text/javascript" src="../js/find_friends_.js"></script>
 </head>
 <body>
     <h1><?php echo $_COOKIE['p_user']; ?>'s chat room.</h1>

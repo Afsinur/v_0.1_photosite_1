@@ -17,7 +17,7 @@ $(document).ready(() => {
   sp_s2.on("click", "button[name='_chat_b1']", function () {
     var t_n = $(this).parents("p#c_pb").find("span#el_1").text();
     $(this).parents("p#c_pb").hide();
-    console.log(t_n.trim());
+    console.log(t_n.trim() + 0);
   });
   sp_s2.on("click", 'button[name="_cancel_b1"]', function () {
     $(this).parents("p#c_pb").hide();
