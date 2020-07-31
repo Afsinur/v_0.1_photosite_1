@@ -14,7 +14,7 @@ if(!isset($_COOKIE['p_user'])) {
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
       <!--script type="text/javascript" src="js/body_1.js"></script-->
       <script type="text/javascript" src="js/sec_1.js"></script>
-      <script type="text/javascript" src="js/sec_2_p.js"></script>
+      <script type="text/javascript" src="js/sec_2_.js"></script>
       <script type="text/javascript" src="js/sub_sec_2.js"></script>
       <script type="text/javascript" src="js/sub_sub_sec_2.js"></script>
   </head>

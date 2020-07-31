@@ -72,6 +72,10 @@ $(document).ready(() => {
               f.find("p#_empty").html("You can not use this email!");
             } else if (data == 4) {
               f.find("p#_empty").html("You can not use this first name!");
+            } else if (data == 8) {
+              f.find("p#_empty").html(
+                "You can not use this first name and last name!"
+              );
             }
           },
         });

@@ -1,3 +1,27 @@
+div#message_up_absolute {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+span#ac_in {
+    padding: 5px;
+    margin-right: 5px;
+}
+
+div#message_up_absolute>p {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 24px;
+    font-weight: 500;
+    color: #303030;
+}
+
 div#chat_div {
     position: relative;
     width: 100vw;
@@ -11,8 +35,19 @@ div#chat_div {
     background: #ff8;
 }
 
+span#recent_span_chat {
+    padding: 5px 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
 div#chat_div>div>h2 {
-    text-align: center;
+    width: 90%;
+    margin-left: 10px;
+    text-align: left;
 }
 
 p#sr_p {
@@ -71,6 +106,45 @@ section#active_find_sec_1 {
     padding: 5px 0;
     width: 100%;
     height: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+span#lv_usr_1 {
+    position: relative;
+    width: 100%;
+    padding: 5px 0;
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+span#lv_usr_1>span {
+    position: relative;
+    width: 90%;
+}
+
+span#lv_clr_1 {
+    padding: 5px;
+}
+
+span#lv_clr_prsn_1 {
+    background: #8ff;
+    font-size: 16px;
+    font-weight: 500;
+    color: #303030;
+    padding: 10px 5px;
+}
+
+span#lv_usr_1>span.a_n_1 {
+    background: #22ef22;
+}
+
+span#lv_usr_1>span._un_1 {
+    background: #707070;
 }
 
 section#active_find_sec_2 {
@@ -118,7 +192,7 @@ span#el_1 {
     display: flex;
     flex-direction: row;
     color: #303030;
-    background: #ff0;
+    background: #8ff;
     padding: 5px 0;
     font-size: 16px;
     font-weight: 500;
@@ -132,7 +206,7 @@ span#el_2 {
     flex-direction: row;
     justify-content: flex-end;
     color: #303030;
-    background: rgb(255, 0, 234);
+    background: #f8f;
     padding: 5px 0;
 }
 
@@ -150,6 +224,9 @@ div#message {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    font-size: 18px;
+    font-weight: 500;
+    color: #303030;
 }
 
 div#find_friends {
@@ -167,7 +244,65 @@ div#message>p {
     font-size: 18px;
     margin: 10px 0;
     font-weight: 500;
-    width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background: #8f8;
+}
+
+div#message span.p_id_rt {
+    background: #ff8;
+    width: 100%;
+    text-align: right;
+}
+
+div#message span.p_id_lt {
+    background: #8ff;
+    width: 100%;
+    text-align: left;
+}
+
+span#new_rc_mg {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    animation: left 800ms ease-in-out 1;
+}
+
+@keyframes left {
+    0% {
+        transform: translate(100%);
+    }
+
+    100% {
+        transform: translate(0%);
+    }
+}
+
+span#new_rc_mg>span {
+    width: 90%;
+    font-size: 18px;
+    font-weight: 500;
+    color: #303030;
+    border-left: 10px solid #08f;
+    padding: 5px;
+    cursor: pointer;
+}
+
+span#new_rc_mg>span:nth-child(1) {
+    background: #8ff;
+    font-size: 20px;
+}
+
+span#new_rc_mg>span:nth-child(2) {
+    background: #8f8;
     text-align: right;
 }
 

@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  //alert(0);
+  //console.log(0);
   var sc_a_f = $("section#active_find");
   var sp_s2 = $("span#spn_bt");
   var bt_a = $("button#active");
@@ -13,14 +13,62 @@ $(document).ready(() => {
   var search_input = $("input#_search_");
   var search_button = $("button#_b_search");
   var search_input_ajax_url = "../post/search_friends.php";
+  var rc_input_ajax_url = "../post/rc_friends_.php";
+  var message_up_absolute_p = $("p#dY_n_f_n");
+  var recent_span_chat = $("span#recent_span_chat");
+  var active_find_sec_1 = $("section#active_find_sec_1");
   //Chat or Cancel
+  active_find_sec_1.on("click", "span#lv_usr_1", function () {
+    var tr_m_rc = $(this).find("span#lv_clr_prsn_1").html().trim();
+    var rc_f_n = tr_m_rc;
+    $.ajax({
+      url: rc_input_ajax_url,
+      type: "post",
+      data: {
+        rc_f_n_1: rc_f_n,
+      },
+      success: function (data) {
+        message_up_absolute_p.html(rc_f_n);
+        var ck_rc_f = recent_span_chat.html().indexOf(rc_f_n);
+        if (ck_rc_f == -1) {
+          recent_span_chat.append(
+            `<span id="new_rc_mg">
+              <span>${rc_f_n}</span>
+              <span>New message</span>
+            </span>`
+          );
+        }
+      },
+    });
+  });
+  //
   sp_s2.on("click", "button[name='_chat_b1']", function () {
+    $(this).parents("p#c_pb").fadeOut(250);
     var t_n = $(this).parents("p#c_pb").find("span#el_1").text();
-    $(this).parents("p#c_pb").hide();
-    console.log(t_n.trim() + 0);
+    var rc_f_n = t_n.trim();
+    $.ajax({
+      url: rc_input_ajax_url,
+      type: "post",
+      data: {
+        rc_f_n_1: rc_f_n,
+      },
+      success: function (data) {
+        message_up_absolute_p.html(rc_f_n);
+        var ck_rc_f = recent_span_chat.html().indexOf(rc_f_n);
+        console.log(ck_rc_f);
+        if (ck_rc_f == -1) {
+          recent_span_chat.append(
+            `<span id="new_rc_mg">
+              <span>${rc_f_n}</span>
+              <span>New message</span>
+            </span>`
+          );
+        }
+      },
+    });
   });
   sp_s2.on("click", 'button[name="_cancel_b1"]', function () {
-    $(this).parents("p#c_pb").hide();
+    $(this).parents("p#c_pb").fadeOut(250);
   });
   //Active and search buttons
   bt_a.css(bt_p1, bt_p1p5);

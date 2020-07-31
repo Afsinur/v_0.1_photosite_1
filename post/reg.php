@@ -11,23 +11,29 @@ if(isset($_POST['submit_reg'])){
             if (strlen($f_n) > 10 || strlen($l_n) > 10){
                 echo 12;
             }else{
-                $sql_2 = "SELECT `fst_name` FROM `reg_1` WHERE `reg_1`.`fst_name` = '$f_n'";
-                $result_2 = $mysqli -> query($sql_2);
-                if ($result_2 -> num_rows < $number_of_first_name_can_user_take) {
-                    $sql_1 = "SELECT `email` FROM `reg_1` WHERE `reg_1`.`email` = '$e_m'";
-                    $result_1 = $mysqli -> query($sql_1);
-                    if ($result_1 -> num_rows == 0) {
-                        $sql = "INSERT INTO `reg_1`(`id`, `fst_name`, `lst_name`, `email`, `password`, `reset`) VALUES (NULL,'$f_n','$l_n','$e_m','$p_w',0)";
-                        if($mysqli -> query($sql)){
-                            echo 10;
+                $sql_3 = "SELECT `fst_name` FROM `reg_1` WHERE `reg_1`.`fst_name` = '$f_n' && `reg_1`.`lst_name` = '$l_n'";
+                $result_3 = $mysqli -> query($sql_3);
+                if ($result_3 -> num_rows == 1 ) {
+                    echo 8;
+                }else {
+                    $sql_2 = "SELECT `fst_name` FROM `reg_1` WHERE `reg_1`.`fst_name` = '$f_n'";
+                    $result_2 = $mysqli -> query($sql_2);
+                    if ($result_2 -> num_rows < $number_of_first_name_can_user_take) {
+                        $sql_1 = "SELECT `email` FROM `reg_1` WHERE `reg_1`.`email` = '$e_m'";
+                        $result_1 = $mysqli -> query($sql_1);
+                        if ($result_1 -> num_rows == 0) {
+                            $sql = "INSERT INTO `reg_1`(`id`, `fst_name`, `lst_name`, `email`, `password`, `reset`, `live`) VALUES (NULL,'$f_n','$l_n','$e_m','$p_w',0, 0)";
+                            if($mysqli -> query($sql)){
+                                echo 10;
+                            }else{
+                                echo 100;
+                            }
                         }else{
-                            echo 100;
+                            echo 2;
                         }
                     }else{
-                        echo 2;
+                        echo 4;
                     }
-                }else{
-                    echo 4;
                 }
             }
         }else{
