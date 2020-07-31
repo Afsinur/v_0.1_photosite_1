@@ -23,7 +23,7 @@ $(document).ready(() => {
   lv_loading_1 = 5000;
   var d = 0;
   var p_mg = "p_id_mg_no";
-  var loading_speed = 35;
+  var loading_speed = 100;
   var message_speed = 1000;
   var test_1 = "../post/test_1.php";
   var test_2 = "../post/test_2.php";
@@ -348,15 +348,17 @@ $(document).ready(() => {
   //
   active_find_sec_1.on("click", "span#lv_usr_1", function () {
     var tr_m_rc = $(this).find("span#lv_clr_prsn_1").html().trim();
-    var tr_mr_c_f = tr_m_rc;
+    message.html("");
+    message.html("<p id='_loading_'>loading..</p>");
     clearInterval(lv_fn_l_1v);
     clearInterval(myVar);
+    var rc_f_n = tr_m_rc;
     lv_fn_l_1v = setInterval(() => {
       $.ajax({
         type: "post",
         url: test_l_v,
         data: {
-          rc_f_n_1: tr_mr_c_f,
+          rc_f_n_1: rc_f_n,
         },
         success: function (data) {
           if (data === "0") {
@@ -368,111 +370,96 @@ $(document).ready(() => {
       });
     }, message_speed);
     $.ajax({
-      url: rc_input_ajax_url,
       type: "post",
+      url: test_1,
       data: {
-        rc_f_n_1: tr_mr_c_f,
+        x: 0,
       },
       success: function (data) {
-        if (data === "1") {
-          message.html("");
-          message.html("<p id='_loading_'>loading..</p>");
-          message_up_absolute_p.html(tr_mr_c_f);
-          clearInterval(myVar);
-          $.ajax({
-            type: "post",
-            url: test_1,
-            data: {
-              x: 0,
-            },
-            success: function (data) {
-              x = Number(data);
-              y = Number(data);
-              l = 0;
-              if (y >= 0) {
-                var myVar_1 = setInterval(() => {
-                  $.ajax({
-                    type: "post",
-                    url: test_2,
-                    data: {
-                      x_1: y,
+        x = Number(data);
+        y = Number(data);
+        l = 0;
+        if (y >= 0) {
+          var myVar_1 = setInterval(() => {
+            $.ajax({
+              type: "post",
+              url: test_2,
+              data: {
+                x_1: y,
+              },
+              success: function (data) {
+                $("p#_loading_").hide();
+                if (l == message_per_load || y == 0) {
+                  clearInterval(myVar_1);
+                  message.animate(
+                    {
+                      scrollTop: outer_ht_all + "px",
                     },
-                    success: function (data) {
-                      $("p#_loading_").hide();
-                      if (l == message_per_load || y == 0) {
-                        clearInterval(myVar_1);
-                        message.animate(
-                          {
-                            scrollTop: outer_ht_all + "px",
-                          },
-                          message_scroll_speed
-                        );
-                        if (y >= 0) {
-                          myVar = setInterval(() => {
-                            $.ajax({
-                              type: "post",
-                              url: test_1,
-                              data: {
-                                x: x,
-                              },
-                              success: function (data) {
-                                y = Number(data);
-                                if (data >= 0) {
-                                  if (y > x) {
-                                    x++;
-                                    $.ajax({
-                                      type: "post",
-                                      url: test_2,
-                                      data: {
-                                        x_1: x,
+                    message_scroll_speed
+                  );
+                  if (y >= 0) {
+                    myVar = setInterval(() => {
+                      $.ajax({
+                        type: "post",
+                        url: test_1,
+                        data: {
+                          x: x,
+                        },
+                        success: function (data) {
+                          y = Number(data);
+                          if (data >= 0) {
+                            if (y > x) {
+                              x++;
+                              $.ajax({
+                                type: "post",
+                                url: test_2,
+                                data: {
+                                  x_1: x,
+                                },
+                                success: function (data) {
+                                  //Current message..
+                                  if (data !== "0") {
+                                    message.append(`
+                                    <p id="${p_mg}_${y}">${data}</p>
+                                   `);
+                                    var p_oh_y = message
+                                      .find("p#" + p_mg + "_" + y)
+                                      .outerHeight(true);
+                                    outer_ht_all += p_oh_y;
+                                    message.animate(
+                                      {
+                                        scrollTop: outer_ht_all + "px",
                                       },
-                                      success: function (data) {
-                                        //Current message..
-                                        if (data !== "0") {
-                                          message.append(`
-                                          <p id="${p_mg}_${y}">${data}</p>
-                                         `);
-                                          var p_oh_y = message
-                                            .find("p#" + p_mg + "_" + y)
-                                            .outerHeight(true);
-                                          outer_ht_all += p_oh_y;
-                                          message.animate(
-                                            {
-                                              scrollTop: outer_ht_all + "px",
-                                            },
-                                            message_scroll_speed
-                                          );
-                                        }
-                                      },
-                                    });
+                                      message_scroll_speed
+                                    );
                                   }
-                                }
-                              },
-                            });
-                          }, message_speed);
-                        }
-                      } else {
-                        //Previous message..
-                        if (data !== "0") {
-                          l++;
-                          c = y;
-                          d = y;
-                          message.prepend(`
-                          <p id="${p_mg}_${y}">${data}</p>
-                          `);
-                          var p_oh = message
-                            .find("p#" + p_mg + "_" + y)
-                            .outerHeight(true);
-                          outer_ht_all += p_oh;
-                        }
-                        y--;
-                      }
-                    },
-                  });
-                }, loading_speed);
-              }
-            },
-          });
+                                },
+                              });
+                            }
+                          }
+                        },
+                      });
+                    }, message_speed);
+                  }
+                } else {
+                  //Previous message..
+                  if (data !== "0") {
+                    l++;
+                    c = y;
+                    d = y;
+                    message.prepend(`
+                    <p id="${p_mg}_${y}">${data}</p>
+                    `);
+                    var p_oh = message
+                      .find("p#" + p_mg + "_" + y)
+                      .outerHeight(true);
+                    outer_ht_all += p_oh;
+                  }
+                  y--;
+                }
+              },
+            });
+          }, loading_speed);
         }
       },
     });

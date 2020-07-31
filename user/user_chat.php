@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/all_with_body_1.css">
     <link rel="stylesheet" href="../css/user_chat_.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/user_chat_.js"></script>
+    <script type="text/javascript" src="../js/user_chat.js"></script>
     <script type="text/javascript" src="../js/find_friends.js"></script>
 </head>
 <body>
