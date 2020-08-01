@@ -20,12 +20,16 @@
     <link rel="stylesheet" href="../css/user_chat_.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="../js/user_chat.js"></script>
-    <script type="text/javascript" src="../js/find_friends.js"></script>
+    <script type="text/javascript" src="../js/find_friends_.js"></script>
 </head>
 <body>
+    <section id="ar_t_mg_alert1"></section>
     <h1><?php echo $_fl_f_l_nm; ?>'s chat room.</h1>
     <div id="message_up_absolute">
         <span id="ac_in"></span><p id="dY_n_f_n"></p>
+    </div>
+    <div id="gn_or_dk_1_2">
+     <span id="gn_or_dk_1"><i>Last message seen</i> <span id="gn_or_dk"></span></span>
     </div>
     <div id="chat_div">
         <div id="recent_chat_friends">

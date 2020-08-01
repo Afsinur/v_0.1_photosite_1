@@ -34,7 +34,6 @@ $(document).ready(() => {
           recent_span_chat.append(
             `<span id="new_rc_mg">
               <span>${rc_f_n}</span>
-              <span>New message</span>
             </span>`
           );
         }
@@ -60,7 +59,6 @@ $(document).ready(() => {
           recent_span_chat.append(
             `<span id="new_rc_mg">
               <span>${rc_f_n}</span>
-              <span>New message</span>
             </span>`
           );
         }

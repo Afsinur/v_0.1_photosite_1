@@ -4,12 +4,15 @@ div#message_up_absolute {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-top: 10px;
 }
 
 
 span#ac_in {
     padding: 5px;
     margin-right: 5px;
+    background: #707070;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 div#message_up_absolute>p {
@@ -25,14 +28,14 @@ div#message_up_absolute>p {
 div#chat_div {
     position: relative;
     width: 100vw;
-    height: 75vh;
+    height: 70vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     justify-content: space-between;
-    background: #ff8;
+    z-index: 2;
 }
 
 span#recent_span_chat {
@@ -75,7 +78,7 @@ button#_b_search {
 div#recent_chat_friends {
     position: relative;
     width: 30%;
-    height: 75vh;
+    height: 100%;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -90,7 +93,6 @@ div#find_friends>p {
 
 section#active_find {
     position: relative;
-    background-color: #8ff;
     padding: 5px 0;
     width: 200%;
     height: 90%;
@@ -101,30 +103,30 @@ section#active_find {
 
 section#active_find_sec_1 {
     position: relative;
-    background-color: #f8f;
     overflow-x: hidden;
     padding: 5px 0;
     width: 100%;
     height: 95%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 span#lv_usr_1 {
     position: relative;
-    width: 100%;
-    padding: 5px 0;
+    width: 90%;
     margin: 5px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 span#lv_usr_1>span {
     position: relative;
-    width: 90%;
+    width: 100%;
 }
 
 span#lv_clr_1 {
@@ -149,7 +151,6 @@ span#lv_usr_1>span._un_1 {
 
 section#active_find_sec_2 {
     position: relative;
-    background-color: #8f8;
     overflow-x: hidden;
     padding: 5px 0;
     width: 100%;
@@ -173,10 +174,11 @@ span#spn_bt {
     padding: 5px 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 p#c_pb {
-    width: 100%;
+    width: 90%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -184,6 +186,8 @@ p#c_pb {
     align-content: center;
     justify-content: center;
     margin: 10px 0;
+    border-left: 10px solid #08f;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 span#el_1 {
@@ -193,10 +197,10 @@ span#el_1 {
     flex-direction: row;
     color: #303030;
     background: #8ff;
-    padding: 5px 0;
     font-size: 16px;
     font-weight: 500;
-    padding: 2px 2px 2px 10px;
+    padding-left: 5px;
+    padding-top: 5px;
 }
 
 span#el_2 {
@@ -206,8 +210,9 @@ span#el_2 {
     flex-direction: row;
     justify-content: flex-end;
     color: #303030;
-    background: #f8f;
-    padding: 5px 0;
+    background: #8ff;
+    padding-left: 5px;
+    padding-bottom: 5px;
 }
 
 span#el_2>button {
@@ -215,12 +220,14 @@ span#el_2>button {
     font-size: 16px;
     padding: 2px;
     cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 div#message {
     position: relative;
     width: 30%;
-    height: 75vh;
+    height: 100%;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -232,7 +239,7 @@ div#message {
 div#find_friends {
     position: relative;
     width: 30%;
-    height: 75vh;
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -254,9 +261,9 @@ div#message>p {
 }
 
 div#message span.p_id_rt {
-    background: #ff8;
     width: 100%;
     text-align: right;
+    background: #fff;
 }
 
 div#message span.p_id_lt {
@@ -299,11 +306,7 @@ span#new_rc_mg>span {
 span#new_rc_mg>span:nth-child(1) {
     background: #8ff;
     font-size: 20px;
-}
-
-span#new_rc_mg>span:nth-child(2) {
-    background: #8f8;
-    text-align: right;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 div#message_send {
@@ -312,6 +315,7 @@ div#message_send {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    z-index: 1;
 }
 
 div#message_send>input[name="s_ms"] {
@@ -327,4 +331,58 @@ div#message_send>button#_sd {
     font-size: 18px;
     font-weight: 500;
     color: #303030;
+}
+
+section#ar_t_mg_alert1 {
+    position: fixed;
+    bottom: 0vh;
+    left: 0;
+    z-index: 2;
+    height: 100px;
+    overflow-x: hidden;
+}
+
+section#ar_t_mg_alert1>div {
+    background: #8ff;
+    padding: 5px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #303030;
+    display: flex;
+    cursor: pointer;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+div#gn_or_dk_1_2 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+span#gn_or_dk_1 {
+    position: relative;
+    width: 30%;
+    font-size: 14px;
+    font-weight: 500;
+    color: #707070;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+}
+
+span#gn_or_dk {
+    margin: 0 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #707070;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }

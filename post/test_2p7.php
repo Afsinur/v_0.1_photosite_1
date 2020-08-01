@@ -8,7 +8,7 @@ if(isset($_POST['_tx'])){
     if($result_1 -> num_rows == 1){
         while($row = $result_1 -> fetch_assoc()){
             $rc_f = $row['rc_f'];
-            $sql = "INSERT INTO `id_1`(`id`, `text`, `user_email`, `rc_f`) VALUES (NULL, '$_tx', '$user_fst_em', '$rc_f')";
+            $sql = "INSERT INTO `id_1`(`id`, `text`, `user_email`, `rc_f`, `lst_msg`) VALUES (NULL, '$_tx', '$user_fst_em', '$rc_f', 0)";
             if(!empty($_tx)){
                 if($mysqli -> query($sql)){
                     echo "1";

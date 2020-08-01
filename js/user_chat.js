@@ -14,13 +14,19 @@ $(document).ready(() => {
     test_l08,
     test_l09,
     test_l10,
+    test_111,
+    test_112,
+    nrc_f_n_1,
+    message_seen,
     lv,
     lv_loading,
     lv_loading_1,
     lv_1,
+    rc_f_n_1,
     ld_1;
   lv_loading = 100;
   lv_loading_1 = 5000;
+  message_seen = 2500;
   var d = 0;
   var p_mg = "p_id_mg_no";
   var loading_speed = 100;
@@ -35,10 +41,13 @@ $(document).ready(() => {
   var test_l_v = "../post/test_l_v.php";
   var test_l_v_ac_n_n_n = "../post/test_l_v_ac_n_n_n.php";
   var test_l_v_ac_n_n_n_n = "../post/test_l_v_ac_n_n_n_n.php";
+  var lst_msg = "../post/lst_msg.php";
+  var lst_msg_1 = "../post/lst_msg_1.php";
+  var new_msges = "../post/new_msges.php";
   var message = $("div#message");
   var message_scroll_speed = 500;
   var outer_ht_all = 0;
-  var message_per_load = 20;
+  var message_per_load = 100;
   var fixed_scroll_top = "50px";
   var tx_message_send = $("div#message_send > input[name='s_ms']");
   var bt_dv_message_send = $("div#message_send>button#_sd");
@@ -50,6 +59,8 @@ $(document).ready(() => {
   var span_ac_in_lm1 = "#707070";
   var span_ac_in_lm2 = "#22ef22";
   var active_find_sec_1 = $("section#active_find_sec_1");
+  var span_gn_or_dk = $("span#gn_or_dk");
+  var section_ar_t_mg_alert1 = $("section#ar_t_mg_alert1");
   //Message Input Control System.
   tx_message_send.keypress((e) => {
     _tx_vl = tx_message_send.val();
@@ -93,18 +104,40 @@ $(document).ready(() => {
     }
   });
   //Message Output Control System.
-  message.html("<p id='_loading_'>loading..</p>");
-  recent_span_chat.on("click", "span#new_rc_mg", function () {
-    var _mr_c_f = $(this).find("span:nth-child(1)").html();
-    var tr_mr_c_f = _mr_c_f.trim();
+  //
+  section_ar_t_mg_alert1.on("click", "div#nmg_ar_t_mg_alert1", function () {
+    var _mr_c_f = $(this).find("span").html();
+    var rc_f_n = _mr_c_f.trim();
+    //
+    $.ajax({
+      url: rc_input_ajax_url,
+      type: "post",
+      data: {
+        rc_f_n_1: rc_f_n,
+      },
+      success: function (data) {
+        message_up_absolute_p.html(rc_f_n);
+        var ck_rc_f = recent_span_chat.html().indexOf(rc_f_n);
+        console.log(ck_rc_f);
+        if (ck_rc_f == -1) {
+          recent_span_chat.append(
+            `<span id="new_rc_mg">
+              <span>${rc_f_n}</span>
+            </span>`
+          );
+        }
+      },
+    });
+    //
     clearInterval(lv_fn_l_1v);
     clearInterval(myVar);
+    //
     lv_fn_l_1v = setInterval(() => {
       $.ajax({
         type: "post",
         url: test_l_v,
         data: {
-          rc_f_n_1: tr_mr_c_f,
+          rc_f_n_1: rc_f_n,
         },
         success: function (data) {
           if (data === "0") {
@@ -115,17 +148,208 @@ $(document).ready(() => {
         },
       });
     }, message_speed);
+    //
     $.ajax({
       url: rc_input_ajax_url,
       type: "post",
       data: {
-        rc_f_n_1: tr_mr_c_f,
+        rc_f_n_1: rc_f_n,
       },
       success: function (data) {
         if (data === "1") {
           message.html("");
           message.html("<p id='_loading_'>loading..</p>");
-          message_up_absolute_p.html(tr_mr_c_f);
+          message_up_absolute_p.html(rc_f_n);
+          clearInterval(myVar);
+          $.ajax({
+            type: "post",
+            url: test_1,
+            data: {
+              x: 0,
+            },
+            success: function (data) {
+              x = Number(data);
+              y = Number(data);
+              l = 0;
+              if (y >= 0) {
+                var myVar_1 = setInterval(() => {
+                  $.ajax({
+                    type: "post",
+                    url: test_2,
+                    data: {
+                      x_1: y,
+                    },
+                    success: function (data) {
+                      $("p#_loading_").hide();
+                      if (l == message_per_load || y == 0) {
+                        clearInterval(myVar_1);
+                        message.animate(
+                          {
+                            scrollTop: outer_ht_all + "px",
+                          },
+                          message_scroll_speed
+                        );
+                        if (y >= 0) {
+                          myVar = setInterval(() => {
+                            $.ajax({
+                              type: "post",
+                              url: test_1,
+                              data: {
+                                x: x,
+                              },
+                              success: function (data) {
+                                y = Number(data);
+                                if (data >= 0) {
+                                  if (y > x) {
+                                    x++;
+                                    $.ajax({
+                                      type: "post",
+                                      url: test_2,
+                                      data: {
+                                        x_1: x,
+                                      },
+                                      success: function (data) {
+                                        //Current message..
+                                        if (data !== "0") {
+                                          message.append(`
+                                          <p id="${p_mg}_${y}">${data}</p>
+                                         `);
+                                          var p_oh_y = message
+                                            .find("p#" + p_mg + "_" + y)
+                                            .outerHeight(true);
+                                          outer_ht_all += p_oh_y;
+                                          message.animate(
+                                            {
+                                              scrollTop: outer_ht_all + "px",
+                                            },
+                                            message_scroll_speed
+                                          );
+                                        }
+                                      },
+                                    });
+                                  }
+                                }
+                              },
+                            });
+                          }, message_speed);
+                        }
+                      } else {
+                        //Previous message..
+                        if (data !== "0") {
+                          l++;
+                          c = y;
+                          d = y;
+                          message.prepend(`
+                          <p id="${p_mg}_${y}">${data}</p>
+                          `);
+                          var p_oh = message
+                            .find("p#" + p_mg + "_" + y)
+                            .outerHeight(true);
+                          outer_ht_all += p_oh;
+                        }
+                        y--;
+                      }
+                    },
+                  });
+                }, loading_speed);
+              }
+            },
+          });
+        }
+      },
+    });
+  });
+  //
+  test_112 = setInterval(() => {
+    $.get({
+      type: "post",
+      url: new_msges,
+      success: function (data) {
+        if (data !== "0") {
+          section_ar_t_mg_alert1.html(data);
+        }
+      },
+    });
+  }, message_seen);
+  //
+  test_111 = setInterval(() => {
+    $.ajax({
+      type: "post",
+      url: test_rc,
+      data: {
+        x_rc_1: 0,
+      },
+      success: function (data) {
+        var nrc_f_n = data;
+        $.ajax({
+          type: "post",
+          url: lst_msg,
+          data: {
+            rc_f_n_1: nrc_f_n,
+          },
+          success: function (data) {
+            nrc_f_n_1 = nrc_f_n;
+            if (data === "1") {
+              //clearInterval(test_111);
+              $.ajax({
+                type: "post",
+                url: lst_msg_1,
+                data: {
+                  lst_msg_2: nrc_f_n_1,
+                },
+                success: function (data) {
+                  console.log(data);
+                  if (data === "1") {
+                    span_gn_or_dk.css(span_ac_in_lm0, span_ac_in_lm2);
+                  } else if (data === "0") {
+                    span_gn_or_dk.css(span_ac_in_lm0, span_ac_in_lm1);
+                  }
+                },
+              });
+            }
+          },
+        });
+      },
+    });
+  }, message_seen);
+  //
+  message.html("<p id='_loading_'>loading..</p>");
+  //
+  recent_span_chat.on("click", "span#new_rc_mg", function () {
+    var _mr_c_f = $(this).find("span:nth-child(1)").html();
+    var rc_f_n = _mr_c_f.trim();
+    //
+    clearInterval(lv_fn_l_1v);
+    clearInterval(myVar);
+    //
+    lv_fn_l_1v = setInterval(() => {
+      $.ajax({
+        type: "post",
+        url: test_l_v,
+        data: {
+          rc_f_n_1: rc_f_n,
+        },
+        success: function (data) {
+          if (data === "0") {
+            span_ac_in.css(span_ac_in_lm0, span_ac_in_lm1);
+          } else {
+            span_ac_in.css(span_ac_in_lm0, span_ac_in_lm2);
+          }
+        },
+      });
+    }, message_speed);
+    //
+    $.ajax({
+      url: rc_input_ajax_url,
+      type: "post",
+      data: {
+        rc_f_n_1: rc_f_n,
+      },
+      success: function (data) {
+        if (data === "1") {
+          message.html("");
+          message.html("<p id='_loading_'>loading..</p>");
+          message_up_absolute_p.html(rc_f_n);
           clearInterval(myVar);
           $.ajax({
             type: "post",
@@ -227,12 +451,15 @@ $(document).ready(() => {
   });
   //
   sp_s2.on("click", "button[name='_chat_b1']", function () {
-    message.html("");
-    message.html("<p id='_loading_'>loading..</p>");
-    clearInterval(lv_fn_l_1v);
-    clearInterval(myVar);
     var t_n = $(this).parents("p#c_pb").find("span#el_1").text();
     var rc_f_n = t_n.trim();
+    //
+    message.html("");
+    message.html("<p id='_loading_'>loading..</p>");
+    //
+    clearInterval(lv_fn_l_1v);
+    clearInterval(myVar);
+    //
     lv_fn_l_1v = setInterval(() => {
       $.ajax({
         type: "post",
@@ -249,6 +476,7 @@ $(document).ready(() => {
         },
       });
     }, message_speed);
+    //
     $.ajax({
       type: "post",
       url: test_1,
@@ -327,7 +555,6 @@ $(document).ready(() => {
                     l++;
                     c = y;
                     d = y;
-                    console.log(l, y, c, d);
                     message.prepend(`
                     <p id="${p_mg}_${y}">${data}</p>
                     `);
@@ -353,6 +580,7 @@ $(document).ready(() => {
     clearInterval(lv_fn_l_1v);
     clearInterval(myVar);
     var rc_f_n = tr_m_rc;
+    //
     lv_fn_l_1v = setInterval(() => {
       $.ajax({
         type: "post",
@@ -369,6 +597,7 @@ $(document).ready(() => {
         },
       });
     }, message_speed);
+    //
     $.ajax({
       type: "post",
       url: test_1,
@@ -483,7 +712,6 @@ $(document).ready(() => {
           recent_span_chat.append(
             `<span id="new_rc_mg">
             <span>${data}</span>
-            <span>New message</span>
           </span>`
           );
           //
@@ -508,6 +736,7 @@ $(document).ready(() => {
           }, message_speed);
         },
       });
+      //
       x = Number(data);
       y = Number(data);
       l = 0;
