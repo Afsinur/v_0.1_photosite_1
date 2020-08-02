@@ -21,10 +21,16 @@ if(!isset($_COOKIE['p_user'])) {
        <meta charset="UTF-8">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>Photosite | <?php echo $_fl_f_l_nm; ?></title>
+       <link rel="stylesheet" href="../css/all_with_body_1.css">
+       <link rel="stylesheet" href="../css/user_chat.css">
     </head>
     <body>
+    <div id="logou_t_dv1">
+     <a href='user_log_out.php' title="Logout">
+      <div id="logou_t_dv2"></div>
+     </a>
+    </div>
     <h1><?php echo $_fl_f_l_nm; ?></h1>
-    <a href='user_log_out.php'>Logout</a>
     <br>
     <a href='user_chat.php'>Chat</a>
     </body>

@@ -17,19 +17,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photosite | <?php echo $_fl_f_l_nm; ?> | Chat</title>
     <link rel="stylesheet" href="../css/all_with_body_1.css">
-    <link rel="stylesheet" href="../css/user_chat_.css">
+    <link rel="stylesheet" href="../css/user_chat.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/user_chat.js"></script>
+    <script type="text/javascript" src="../js/user_chat_.js"></script>
     <script type="text/javascript" src="../js/find_friends_.js"></script>
 </head>
 <body>
+    <div id="logou_t_dv1">
+     <a href='user_log_out.php' title="Logout">
+      <div id="logou_t_dv2"></div>
+     </a>
+    </div>
     <section id="ar_t_mg_alert1"></section>
     <h1><?php echo $_fl_f_l_nm; ?>'s chat room.</h1>
     <div id="message_up_absolute">
         <span id="ac_in"></span><p id="dY_n_f_n"></p>
     </div>
     <div id="gn_or_dk_1_2">
-     <span id="gn_or_dk_1"><i>Last message seen</i> <span id="gn_or_dk"></span></span>
+     <span id="gn_or_dk_1">
+         <span>
+             <i>Typing</i>
+             <span id="s_gn_or_dk_1"></span>
+        </span>
+        <span>
+            <i>Last message seen</i>
+            <span id="gn_or_dk"></span> 
+        </span>
+    </span>
     </div>
     <div id="chat_div">
         <div id="recent_chat_friends">

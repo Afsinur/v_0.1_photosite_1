@@ -16,17 +16,20 @@ $(document).ready(() => {
     test_l10,
     test_111,
     test_112,
+    test_113,
     nrc_f_n_1,
     message_seen,
+    scnd_input_typing,
     lv,
     lv_loading,
     lv_loading_1,
     lv_1,
     rc_f_n_1,
     ld_1;
-  lv_loading = 100;
+  lv_loading = 1000;
   lv_loading_1 = 5000;
   message_seen = 2500;
+  scnd_input_typing = 1500;
   var d = 0;
   var p_mg = "p_id_mg_no";
   var loading_speed = 100;
@@ -44,10 +47,12 @@ $(document).ready(() => {
   var lst_msg = "../post/lst_msg.php";
   var lst_msg_1 = "../post/lst_msg_1.php";
   var new_msges = "../post/new_msges.php";
+  var test_typing = "../post/test_typing.php";
+  var input_typing = "../post/input_typing.php";
   var message = $("div#message");
   var message_scroll_speed = 500;
   var outer_ht_all = 0;
-  var message_per_load = 100;
+  var message_per_load = 20;
   var fixed_scroll_top = "50px";
   var tx_message_send = $("div#message_send > input[name='s_ms']");
   var bt_dv_message_send = $("div#message_send>button#_sd");
@@ -60,14 +65,102 @@ $(document).ready(() => {
   var span_ac_in_lm2 = "#22ef22";
   var active_find_sec_1 = $("section#active_find_sec_1");
   var span_gn_or_dk = $("span#gn_or_dk");
+  var span_s_gn_or_dk_1 = $("span#s_gn_or_dk_1");
   var section_ar_t_mg_alert1 = $("section#ar_t_mg_alert1");
   //Message Input Control System.
+  //
+  tx_message_send.keyup(() => {
+    _tx_vl = tx_message_send.val();
+    if (_tx_vl != "") {
+      $.ajax({
+        type: "post",
+        url: test_rc,
+        data: {
+          x_rc_1: 0,
+        },
+        success: function (data) {
+          $.ajax({
+            type: "post",
+            url: input_typing,
+            data: {
+              x_rc_1: data,
+              x_rc_2: 1,
+            },
+          });
+        },
+      });
+    } else {
+      $.ajax({
+        type: "post",
+        url: test_rc,
+        data: {
+          x_rc_1: 0,
+        },
+        success: function (data) {
+          $.ajax({
+            type: "post",
+            url: input_typing,
+            data: {
+              x_rc_1: data,
+              x_rc_2: 0,
+            },
+          });
+        },
+      });
+    }
+  });
+  //
+  tx_message_send.keypress((e) => {
+    var code = e.keyCode || e.which;
+    if (code == 13) {
+      $.ajax({
+        type: "post",
+        url: test_rc,
+        data: {
+          x_rc_1: 0,
+        },
+        success: function (data) {
+          $.ajax({
+            type: "post",
+            url: input_typing,
+            data: {
+              x_rc_1: data,
+              x_rc_2: 0,
+            },
+          });
+        },
+      });
+    }
+  });
+  //
+  bt_dv_message_send.click(() => {
+    $.ajax({
+      type: "post",
+      url: test_rc,
+      data: {
+        x_rc_1: 0,
+      },
+      success: function (data) {
+        $.ajax({
+          type: "post",
+          url: input_typing,
+          data: {
+            x_rc_1: data,
+            x_rc_2: 0,
+          },
+        });
+      },
+    });
+  });
+  //
+  //
   tx_message_send.keypress((e) => {
     _tx_vl = tx_message_send.val();
     var code = e.keyCode || e.which;
     if (code == 13) {
       if (_tx_vl != "") {
         tx_message_send.attr("placeholder", "Sending..");
+        //
         $.ajax({
           type: "post",
           url: test_2p7,
@@ -84,10 +177,12 @@ $(document).ready(() => {
       }
     }
   });
+  //
   bt_dv_message_send.click(() => {
     _tx_vl = tx_message_send.val();
     if (_tx_vl != "") {
       tx_message_send.attr("placeholder", "Sending..");
+      //
       $.ajax({
         type: "post",
         url: test_2p7,
@@ -298,7 +393,6 @@ $(document).ready(() => {
                   lst_msg_2: nrc_f_n_1,
                 },
                 success: function (data) {
-                  console.log(data);
                   if (data === "1") {
                     span_gn_or_dk.css(span_ac_in_lm0, span_ac_in_lm2);
                   } else if (data === "0") {
@@ -312,6 +406,32 @@ $(document).ready(() => {
       },
     });
   }, message_seen);
+  //
+  test_113 = setInterval(() => {
+    $.ajax({
+      type: "post",
+      url: test_rc,
+      data: {
+        x_rc_1: 0,
+      },
+      success: function (data) {
+        $.ajax({
+          type: "post",
+          url: test_typing,
+          data: {
+            x_rc_1: data,
+          },
+          success: function (data) {
+            if (data === "1") {
+              span_s_gn_or_dk_1.css(span_ac_in_lm0, span_ac_in_lm2);
+            } else if (data === "0") {
+              span_s_gn_or_dk_1.css(span_ac_in_lm0, span_ac_in_lm1);
+            }
+          },
+        });
+      },
+    });
+  }, scnd_input_typing);
   //
   message.html("<p id='_loading_'>loading..</p>");
   //
@@ -837,10 +957,7 @@ $(document).ready(() => {
       },
       success: function (data) {
         test_l10 = Number(data);
-        if (test_l10 == test_l07) {
-          console.log("is", test_l07, test_l10);
-        } else {
-          console.log(test_l07, test_l10);
+        if (test_l10 != test_l07) {
           clearInterval(test_l08);
           ld_1 = 0;
           lv = setInterval(test_l01, lv_loading);

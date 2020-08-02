@@ -130,7 +130,7 @@ span#lv_usr_1>span {
 }
 
 span#lv_clr_1 {
-    padding: 5px;
+    padding: 5px 0 5px 5px;
 }
 
 span#lv_clr_prsn_1 {
@@ -138,7 +138,7 @@ span#lv_clr_prsn_1 {
     font-size: 16px;
     font-weight: 500;
     color: #303030;
-    padding: 10px 5px;
+    padding: 10px 0 10px 5px;
 }
 
 span#lv_usr_1>span.a_n_1 {
@@ -219,6 +219,7 @@ span#el_2>button {
     margin-right: 10px;
     font-size: 16px;
     padding: 2px;
+    font-weight: 500;
     cursor: pointer;
     border: none;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -295,7 +296,6 @@ span#new_rc_mg {
 
 span#new_rc_mg>span {
     width: 90%;
-    font-size: 18px;
     font-weight: 500;
     color: #303030;
     border-left: 10px solid #08f;
@@ -371,7 +371,15 @@ span#gn_or_dk_1 {
     flex-direction: row;
     align-items: center;
     align-content: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+span#gn_or_dk_1>span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
 
 span#gn_or_dk {
@@ -385,4 +393,75 @@ span#gn_or_dk {
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+span#s_gn_or_dk_1 {
+    margin: 0 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: #707070;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+div#logou_t_dv1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    padding: 5px;
+}
+
+div#logou_t_dv1:hover,
+span#el_2>button:hover {
+    filter: brightness(1.5);
+}
+
+div#logou_t_dv1>a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+div#logou_t_dv2 {
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    background-color: #f32b08;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+a[href="user_chat.php"] {
+    text-decoration: none;
+    color: #303030;
+    font-size: 18px;
+    font-weight: 500;
+    background: #8ff;
+    padding: 5px;
+    margin: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+a[href="user_chat.php"]:hover,
+span#new_rc_mg:hover,
+span#lv_usr_1:hover,
+button#active:hover,
+button#find_friends_b:hover,
+p#c_pb:hover {
+    filter: brightness(0.9);
 }

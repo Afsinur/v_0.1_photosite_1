@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2020 at 08:50 PM
+-- Generation Time: Aug 02, 2020 at 03:46 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -99,12 +99,101 @@ INSERT INTO `id_1` (`id`, `text`, `user_email`, `rc_f`, `lst_msg`) VALUES
 (56, 'Kire', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
 (57, 'Koire', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
 (58, 'Hmm re', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
-(59, 'Ji vai', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 0),
-(60, 'Bolr', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 0),
-(61, 'Mane bolen', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 0),
+(59, 'Ji vai', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(60, 'Bolr', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(61, 'Mane bolen', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
 (62, 'assalmuyalaikum vai afsin', 'afsinurhero@gmail.com', 'afsin.sayem1@gmail.com', 1),
 (63, 'oyalaikumussalam vai', 'afsin.sayem1@gmail.com', 'afsinurhero@gmail.com', 1),
-(64, 'assalamuyalaikum vai', 'afsinurhero@gmail.com', 'afsinurrahman1@gmail.com', 0);
+(64, 'assalamuyalaikum vai', 'afsinurhero@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(65, 'afsin', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(66, '1', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(67, '2', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(68, '3', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(69, '4', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(70, '5', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(71, '6', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(72, '7', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(73, '8', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(74, '9', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(75, '10', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(76, 'oyalaikumussalam', 'afsinurrahman1@gmail.com', 'afsinurhero@gmail.com', 0),
+(77, 'vai', 'afsinurrahman1@gmail.com', 'afsinurhero@gmail.com', 0),
+(78, 'ki hoise khali number des ken?', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(79, 'ki hoilo abar?', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(80, 'kos na ken?', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(81, 'assalamuyalaikum vai achen naki?', 'afsin.sayem1@gmail.com', 'afsinurhero@gmail.com', 0),
+(82, 'areh kichu na', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(83, 'assalamualaikum', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(84, 'byr', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(85, 'bye', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(86, 'assalamauylaikum vai', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(87, 'what?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(88, 'bye', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(89, 'kire?', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(90, 'no', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(91, 'kire???', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(92, 'tui mamonire golpo bola shuru korli', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(93, 'hgmhgmhgm', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(94, 'yes', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(95, 'tui mamonire golpo bola start korsos????', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(96, 'ghmghmghm', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(97, 'B.A.L.', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(98, 'B.A.L.', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(99, 'bangladesh awa miling', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(100, 'WHAT??', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(101, 'tui dol koros!!', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(102, 'val er purnorup', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(103, 'bal*', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(104, 'o accha', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(105, 'haha', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(106, 'hahahahaha', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(107, 'bangladesh awami lig', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(108, 'taile D.A.L er mane ki?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(109, 'byeshut down', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(110, 'why?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(111, 'dhaon aponar lomba', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(112, 'shut down', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(113, 'why?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(114, 'dal', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(115, 'cal?', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(116, 'hah......hahahaha', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(117, 'chele aponar luicca', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(118, 'emoji add koro', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(119, 'C.A.L', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(120, 'no', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(121, 'insha Allah pore kormu', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(122, 'ok onno id theke dekh', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(123, 'messages', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(124, 'ok', 'afsinurrahman1@gmail.com', 's@gmail.com', 0),
+(125, 'kire?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(126, 'kire?', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(127, 'seen koros replay des na !', 'afsin.sayem1@gmail.com', 's@gmail.com', 1),
+(128, 'ha ha', 's@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(129, 'he ha', 'afsin.sayem1@gmail.com', 's@gmail.com', 0),
+(130, 'vaiya', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(131, 'viya 1', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(132, 'a', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(133, 'a', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(134, 'asd', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(135, 'afs', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(136, 'asd', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(137, 'asd', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(138, 'asd', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(139, 'asdssss', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(140, 'asd', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(141, 'a', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(142, 'a', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(143, 'assalamuyalaikum', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(144, 's', 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 1),
+(145, 'assalamuyalaikum', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(146, 'ads', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(147, 'asd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(148, 'asd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(149, 'asd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(150, 'as', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(151, 'asd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(152, 'asd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1),
+(153, 'asdasdasd', 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -115,18 +204,20 @@ INSERT INTO `id_1` (`id`, `text`, `user_email`, `rc_f`, `lst_msg`) VALUES
 CREATE TABLE `rc_f` (
   `id` int(255) NOT NULL,
   `email` mediumtext NOT NULL,
-  `rc_f` mediumtext NOT NULL
+  `rc_f` mediumtext NOT NULL,
+  `typing` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `rc_f`
 --
 
-INSERT INTO `rc_f` (`id`, `email`, `rc_f`) VALUES
-(1, 'afsin.sayem1@gmail.com', 'afsinurhero@gmail.com'),
-(2, 'safwanurrsayem@gmail.com', 'safwanurrsayem@gmail.com'),
-(3, 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com'),
-(4, 'afsinurhero@gmail.com', 'afsin.sayem1@gmail.com');
+INSERT INTO `rc_f` (`id`, `email`, `rc_f`, `typing`) VALUES
+(1, 'afsin.sayem1@gmail.com', 'afsinurrahman1@gmail.com', 0),
+(2, 'safwanurrsayem@gmail.com', 'safwanurrsayem@gmail.com', 0),
+(3, 'afsinurrahman1@gmail.com', 'afsin.sayem1@gmail.com', 0),
+(4, 'afsinurhero@gmail.com', 'afsin.sayem1@gmail.com', 0),
+(5, 's@gmail.com', 'afsin.sayem1@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -150,9 +241,9 @@ CREATE TABLE `reg_1` (
 
 INSERT INTO `reg_1` (`id`, `fst_name`, `lst_name`, `email`, `password`, `reset`, `live`) VALUES
 (1, 'Muhammad', 'Afsin', 'afsin.sayem1@gmail.com', 'cf9cee39e86996f67ec9de247f26e4f2', '0', 1),
-(2, 'Sayem', 'Safwanur', 'safwanurrsayem@gmail.com', '709ca0cd9eb443ba7bb7e3bb58e69706', '0', 0),
-(3, 'Test', 'Afsin', 'afsinurrahman1@gmail.com', 'cf9cee39e86996f67ec9de247f26e4f2', '0', 0),
-(4, 'Shahriar', 'Afsin', 'afsinurhero@gmail.com', 'cf9cee39e86996f67ec9de247f26e4f2', '0', 0);
+(2, 'Test', 'Afsin', 'afsinurrahman1@gmail.com', 'cf9cee39e86996f67ec9de247f26e4f2', '0', 0),
+(3, 'Shahriar', 'Afsin', 'afsinurhero@gmail.com', 'cf9cee39e86996f67ec9de247f26e4f2', '0', 0),
+(4, 'kapasiya', 'Safwanur', 's@gmail.com', 'c12e01f2a13ff5587e1e9e4aedb8242d', '0', 1);
 
 --
 -- Indexes for dumped tables
@@ -184,13 +275,13 @@ ALTER TABLE `reg_1`
 -- AUTO_INCREMENT for table `id_1`
 --
 ALTER TABLE `id_1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT for table `rc_f`
 --
 ALTER TABLE `rc_f`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reg_1`
