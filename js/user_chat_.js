@@ -29,7 +29,6 @@ $(document).ready(() => {
   lv_loading_1 = 5000;
   message_seen = 2500;
   scnd_input_typing = 1000;
-  var d = 0;
   var p_mg = "p_id_mg_no";
   var loading_speed = 50;
   var message_speed = 1000;
@@ -277,7 +276,6 @@ $(document).ready(() => {
                         if (data !== "0") {
                           l++;
                           c = y;
-                          d = y;
                           message.prepend(`
                           <p id="${p_mg}_${y}">${data}</p>
                           `);
@@ -494,7 +492,6 @@ $(document).ready(() => {
                         if (data !== "0") {
                           l++;
                           c = y;
-                          d = y;
                           message.prepend(`
                           <p id="${p_mg}_${y}">${data}</p>
                           `);
@@ -622,7 +619,6 @@ $(document).ready(() => {
                   if (data !== "0") {
                     l++;
                     c = y;
-                    d = y;
                     message.prepend(`
                     <p id="${p_mg}_${y}">${data}</p>
                     `);
@@ -745,7 +741,6 @@ $(document).ready(() => {
                   if (data !== "0") {
                     l++;
                     c = y;
-                    d = y;
                     message.prepend(`
                     <p id="${p_mg}_${y}">${data}</p>
                     `);
@@ -949,13 +944,15 @@ $(document).ready(() => {
   });
   message.on("scroll", () => {
     if (message.scrollTop() == 0) {
-      message.prepend("<p id='_loading_'>loading..</p>");
-      d -= message_per_load;
+      var scl = 0;
+      var scl_1 = 0;
+      if (c > 0) {
+        message.prepend("<p id='_loading_'>loading..</p>");
+      }
       var myVar_2 = setInterval(() => {
-        if (c == d || c <= 0) {
+        if (scl > 15 || c <= 0) {
           if (c <= 0) {
             $("p#_loading_").css("display", "none");
-            d = 0;
             clearInterval(myVar_2);
           } else {
             $("p#_loading_").css("display", "none");
@@ -969,6 +966,9 @@ $(document).ready(() => {
           }
         } else {
           c--;
+          if (scl_1 > 0) {
+            message.find("p#_loading_").html("loading..");
+          }
           $.ajax({
             type: "post",
             url: test_2p6,
@@ -977,6 +977,8 @@ $(document).ready(() => {
             },
             success: function (data) {
               if (data !== "0") {
+                scl_1 = 0;
+                scl++;
                 $("p#_loading_").css("display", "none");
                 //Onscroll previous message..
                 message.prepend(`
@@ -986,6 +988,11 @@ $(document).ready(() => {
                   .find("p#" + p_mg + "_" + c)
                   .outerHeight(true);
                 outer_ht_all += p_oh_1;
+              } else {
+                if (scl_1 <= 0) {
+                  message.prepend("<p id='_loading_'>loading..</p>");
+                }
+                scl_1++;
               }
             },
           });
