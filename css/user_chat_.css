@@ -28,14 +28,14 @@ div#message_up_absolute>p {
 div#chat_div {
     position: relative;
     width: 100vw;
-    height: 70vh;
+    height: 60vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     justify-content: space-between;
-    z-index: 2;
+    z-index: 1;
 }
 
 span#recent_span_chat {
@@ -343,6 +343,7 @@ section#ar_t_mg_alert1 {
 }
 
 section#ar_t_mg_alert1>div {
+    border-left: 10px solid #08f;
     background: #8ff;
     padding: 5px;
     margin: 10px 5px;
@@ -462,6 +463,7 @@ span#new_rc_mg:hover,
 span#lv_usr_1:hover,
 button#active:hover,
 button#find_friends_b:hover,
-p#c_pb:hover {
+p#c_pb:hover,
+section#ar_t_mg_alert1>div:hover {
     filter: brightness(0.9);
 }

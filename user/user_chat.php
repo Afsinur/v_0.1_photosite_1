@@ -17,10 +17,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photosite | <?php echo $_fl_f_l_nm; ?> | Chat</title>
     <link rel="stylesheet" href="../css/all_with_body_1.css">
-    <link rel="stylesheet" href="../css/user_chat.css">
+    <link rel="stylesheet" href="../css/user_chat_.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../js/user_chat_.js"></script>
+    <script type="text/javascript" src="../js/user_chat.js"></script>
     <script type="text/javascript" src="../js/find_friends_.js"></script>
+    <script type="text/javascript" src="../js/user_chat_typing.js"></script>
 </head>
 <body>
     <div id="logou_t_dv1">

@@ -24,19 +24,17 @@ $(document).ready(() => {
     lv_loading,
     lv_loading_1,
     lv_1,
-    rc_f_n_1,
     ld_1;
   lv_loading = 1000;
   lv_loading_1 = 5000;
   message_seen = 2500;
-  scnd_input_typing = 1500;
+  scnd_input_typing = 1000;
   var d = 0;
   var p_mg = "p_id_mg_no";
-  var loading_speed = 100;
+  var loading_speed = 50;
   var message_speed = 1000;
   var test_1 = "../post/test_1.php";
   var test_2 = "../post/test_2.php";
-  var test_2p5 = "../post/test_2p5.php";
   var test_2p6 = "../post/test_2p6.php";
   var test_2p7 = "../post/test_2p7.php";
   var test_rc = "../post/test_rc_1.php";
@@ -48,11 +46,11 @@ $(document).ready(() => {
   var lst_msg_1 = "../post/lst_msg_1.php";
   var new_msges = "../post/new_msges.php";
   var test_typing = "../post/test_typing.php";
-  var input_typing = "../post/input_typing.php";
+  var input_typing_zero = "../post/input_typing_zero.php";
   var message = $("div#message");
   var message_scroll_speed = 500;
   var outer_ht_all = 0;
-  var message_per_load = 20;
+  var message_per_load = 15;
   var fixed_scroll_top = "50px";
   var tx_message_send = $("div#message_send > input[name='s_ms']");
   var bt_dv_message_send = $("div#message_send>button#_sd");
@@ -69,97 +67,27 @@ $(document).ready(() => {
   var section_ar_t_mg_alert1 = $("section#ar_t_mg_alert1");
   //Message Input Control System.
   //
-  tx_message_send.keyup(() => {
-    _tx_vl = tx_message_send.val();
-    if (_tx_vl != "") {
-      $.ajax({
-        type: "post",
-        url: test_rc,
-        data: {
-          x_rc_1: 0,
-        },
-        success: function (data) {
-          $.ajax({
-            type: "post",
-            url: input_typing,
-            data: {
-              x_rc_1: data,
-              x_rc_2: 1,
-            },
-          });
-        },
-      });
-    } else {
-      $.ajax({
-        type: "post",
-        url: test_rc,
-        data: {
-          x_rc_1: 0,
-        },
-        success: function (data) {
-          $.ajax({
-            type: "post",
-            url: input_typing,
-            data: {
-              x_rc_1: data,
-              x_rc_2: 0,
-            },
-          });
-        },
-      });
-    }
-  });
-  //
-  tx_message_send.keypress((e) => {
-    var code = e.keyCode || e.which;
-    if (code == 13) {
-      $.ajax({
-        type: "post",
-        url: test_rc,
-        data: {
-          x_rc_1: 0,
-        },
-        success: function (data) {
-          $.ajax({
-            type: "post",
-            url: input_typing,
-            data: {
-              x_rc_1: data,
-              x_rc_2: 0,
-            },
-          });
-        },
-      });
-    }
-  });
-  //
-  bt_dv_message_send.click(() => {
-    $.ajax({
-      type: "post",
-      url: test_rc,
-      data: {
-        x_rc_1: 0,
-      },
-      success: function (data) {
-        $.ajax({
-          type: "post",
-          url: input_typing,
-          data: {
-            x_rc_1: data,
-            x_rc_2: 0,
-          },
-        });
-      },
-    });
-  });
-  //
-  //
   tx_message_send.keypress((e) => {
     _tx_vl = tx_message_send.val();
     var code = e.keyCode || e.which;
     if (code == 13) {
       if (_tx_vl != "") {
-        tx_message_send.attr("placeholder", "Sending..");
+        $.ajax({
+          type: "post",
+          url: input_typing_zero,
+          data: {
+            x_rc_1: 0,
+          },
+          success: function (data) {
+            $.ajax({
+              type: "post",
+              url: input_typing_zero,
+              data: {
+                x_rc_1: 0,
+              },
+            });
+          },
+        });
         //
         $.ajax({
           type: "post",
@@ -181,7 +109,22 @@ $(document).ready(() => {
   bt_dv_message_send.click(() => {
     _tx_vl = tx_message_send.val();
     if (_tx_vl != "") {
-      tx_message_send.attr("placeholder", "Sending..");
+      $.ajax({
+        type: "post",
+        url: input_typing_zero,
+        data: {
+          x_rc_1: 0,
+        },
+        success: function (data) {
+          $.ajax({
+            type: "post",
+            url: input_typing_zero,
+            data: {
+              x_rc_1: 0,
+            },
+          });
+        },
+      });
       //
       $.ajax({
         type: "post",
@@ -277,6 +220,7 @@ $(document).ready(() => {
                     success: function (data) {
                       $("p#_loading_").hide();
                       if (l == message_per_load || y == 0) {
+                        $("p#_loading_").css("display", "none");
                         clearInterval(myVar_1);
                         message.animate(
                           {
@@ -342,6 +286,7 @@ $(document).ready(() => {
                             .outerHeight(true);
                           outer_ht_all += p_oh;
                         }
+                        message.prepend("<p id='_loading_'>loading..</p>");
                         y--;
                       }
                     },
@@ -492,6 +437,7 @@ $(document).ready(() => {
                     success: function (data) {
                       $("p#_loading_").hide();
                       if (l == message_per_load || y == 0) {
+                        $("p#_loading_").css("display", "none");
                         clearInterval(myVar_1);
                         message.animate(
                           {
@@ -557,6 +503,7 @@ $(document).ready(() => {
                             .outerHeight(true);
                           outer_ht_all += p_oh;
                         }
+                        message.prepend("<p id='_loading_'>loading..</p>");
                         y--;
                       }
                     },
@@ -618,6 +565,7 @@ $(document).ready(() => {
               success: function (data) {
                 $("p#_loading_").hide();
                 if (l == message_per_load || y == 0) {
+                  $("p#_loading_").css("display", "none");
                   clearInterval(myVar_1);
                   message.animate(
                     {
@@ -683,6 +631,7 @@ $(document).ready(() => {
                       .outerHeight(true);
                     outer_ht_all += p_oh;
                   }
+                  message.prepend("<p id='_loading_'>loading..</p>");
                   y--;
                 }
               },
@@ -739,6 +688,7 @@ $(document).ready(() => {
               success: function (data) {
                 $("p#_loading_").hide();
                 if (l == message_per_load || y == 0) {
+                  $("p#_loading_").css("display", "none");
                   clearInterval(myVar_1);
                   message.animate(
                     {
@@ -804,6 +754,7 @@ $(document).ready(() => {
                       .outerHeight(true);
                     outer_ht_all += p_oh;
                   }
+                  message.prepend("<p id='_loading_'>loading..</p>");
                   y--;
                 }
               },
@@ -871,6 +822,7 @@ $(document).ready(() => {
             success: function (data) {
               $("p#_loading_").hide();
               if (l == message_per_load || y == 0) {
+                $("p#_loading_").css("display", "none");
                 clearInterval(myVar_1);
                 message.animate(
                   {
@@ -936,6 +888,7 @@ $(document).ready(() => {
                     .outerHeight(true);
                   outer_ht_all += p_oh;
                 }
+                message.prepend("<p id='_loading_'>loading..</p>");
                 y--;
               }
             },
@@ -996,13 +949,16 @@ $(document).ready(() => {
   });
   message.on("scroll", () => {
     if (message.scrollTop() == 0) {
+      message.prepend("<p id='_loading_'>loading..</p>");
       d -= message_per_load;
       var myVar_2 = setInterval(() => {
         if (c == d || c <= 0) {
           if (c <= 0) {
+            $("p#_loading_").css("display", "none");
             d = 0;
             clearInterval(myVar_2);
           } else {
+            $("p#_loading_").css("display", "none");
             message.animate(
               {
                 scrollTop: fixed_scroll_top,
@@ -1021,6 +977,7 @@ $(document).ready(() => {
             },
             success: function (data) {
               if (data !== "0") {
+                $("p#_loading_").css("display", "none");
                 //Onscroll previous message..
                 message.prepend(`
                 <p id="${p_mg}_${c}">${data}</p>
